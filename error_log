@@ -1,0 +1,2 @@
+[27-Mar-2019 20:30:36 UTC] PHP Warning:  mysqli::mysqli(): (HY000/1045): Access denied for user 'isshaneemo'@'localhost' (using password: YES) in /home/isshaneemo/public_html/test/includes/database.php on line 14
+[27-Mar-2019 20:30:44 UTC] PHP Warning:  mysqli::mysqli(): (HY000/1045): Access denied for user 'isshaneemo'@'localhost' (using password: YES) in /home/isshaneemo/public_html/test/includes/database.php on line 14

@@ -1,0 +1,120 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,300&subset=latin,latin-ext)
+
+$fonts: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif
+$light_gray: #F5F7FA
+$dark-gray: #434A54
+$blue: #4FC1E9
+$dark-blue: #4A89DC
+$orange: #E9573F
+$mint: #48CFAD
+$green: #A0D468
+$red: #DA4453
+  
+*
+  font-family: $fonts
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+h1, h2
+  color: $light-gray
+  text-align: center
+  
+h1
+  font-size: 2.5em
+  margin-top: 20px
+
+h2
+  margin: 20px 0
+  font-weight: 100
+
+body
+  background: $green
+  
+table
+  text-align: left
+  width: 640px
+  margin: 30px auto
+  border-radius: 3px
+  background-color: #fff
+    
+  th
+    padding: 10px
+
+  tr:nth-child(odd)
+    background-color: $light-gray
+  td
+    padding: 10px 15px 
+    color: $dark-gray
+
+.amount
+  color: $red
+  text-align: right
+    
+#button
+  position: relative
+  top: 0
+  color: $light-gray
+  padding: 20px
+  text-align: center
+  line-height: 24px
+  width: 200px
+  background-color: $blue
+  border-radius: 3px
+  cursor: pointer
+  margin: auto
+  box-shadow: 0 3px $dark-blue
+  transition: 0.1s ease
+  
+  &:active
+    position: relative
+    box-shadow: 0 0px $dark-blue
+    top: 3px
+    box-shadow: 0 0
+    
+#form-box
+  width: 650px
+  margin: 30px auto
+  padding-left: 15px
+
+form
+  color: #fff
+  margin: auto
+  
+  select, input
+    margin-bottom: 25px
+    color: $dark-gray
+    padding: 10px
+    width: 200px
+    border-radius: 3px
+    border: 0
+    
+    &active
+      border: 1px solid $blue
+      transition: 0.2s ease
+    
+  div
+    display: inline-block
+    margin-right: 10px
+    
+  span
+    font-size: 1.3em
+    font-weight: 100
+    display: inline-block
+    width: 100px
+
+#type
+  width: 50px
+  
+#date
+  width: 141px
+  
+#amount
+  width: 100px
+    
+#if-empty
+  text-align: center
+    
+.center
+  margin: auto
+  text-align: center
