@@ -25,6 +25,7 @@
     <!-- Main CSS-->
     <link href="css/main.css" rel="stylesheet" media="all">
 </head>
+<!-----------PHP CODE FAIL----
 
 
 <?php
@@ -124,7 +125,8 @@ function test_input($data) {
 }
    
 ?>
-
+------------------------------
+-------------------------------->
 <body>
     <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
         <div class="wrapper wrapper--w790">
@@ -133,7 +135,7 @@ function test_input($data) {
                     <h2 class="title">Sign Up for shareApart</h2>
                 </div>
                 <div class="card-body">
-                    <form method="POST" id="SignInform" action="register_new.php"> >
+                    <form method="POST">
                         <div class="form-row m-b-55">
                             <div class="name">Name</div>
                             <div class="value">
@@ -219,6 +221,7 @@ function test_input($data) {
           
             if(flag==false){
               document.getElementById("name").value="";
+              document.getElementById("age").value="";
               document.getElementById("familyName").value="";
               document.getElementById("email").value="";
               document.getElementById("pass1").value="";
@@ -232,7 +235,7 @@ function test_input($data) {
           
              
           </script>
-    <!-- Jquery JS-->
+    <!-- Jquery JS--->
     <script src="vendor/jquery/jquery.min.js"></script>
     <!-- Vendor JS-->
     <script src="vendor/select2/select2.min.js"></script>
