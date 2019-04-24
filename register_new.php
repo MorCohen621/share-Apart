@@ -26,12 +26,14 @@
     <link href="css/main.css" rel="stylesheet" media="all">
 </head>
 
+<body>
+    
 
 <?php
 require_once('includes/init.php');
 
 // define variables and set to empty values
-$nameErr = $ageErr= $emailErr=$passwordErr= $Repeat_passwordErr= "";
+$nameErr = $ageErr= $emailErr= "";
 $name =  $password=$Repeat_password= $email= $age= "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -42,53 +44,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$register_Users =null;
 	$register_Password=null;
 
-    if ($_POST["name"])
-    {
+    if (empty($_POST["name"])) {
+        $nameErr = "Name is required";
+      } else {
         $name = test_input($_POST["name"]);
+        // check if name only contains letters and whitespace
         if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-        $nameErr = "Only letters and white space allowed"; 
+          $nameErr = "Only letters and white space allowed"; 
         }
-    }
-        
-   if (empty($_POST["name"])) {
-    $nameErr = "Name is required";
-    }
-    
-    else
-    {
-    $name = test_input($_POST["name"]);
-    }
+      }
     
 	
-    if($_POST['age']){
-    if(strlen($_POST['age'])>2)
-        $ageErr = "age can not be more then 2 digit";
+      if (empty($_POST["age"])) {
+        $nameErr = "Age is required";
+      } else {
+        $age = test_input($_POST["age"]);
+        // check if name only contains letters and whitespace
+       if(strlen($_POST['age'])>2)
+            $ageErr = "age can not be more then 2 digit";
+          }
       }
-       
-   	if (empty($_POST["age"])) {
-    $ageErr = "age is required";
-  } else {
-    $age = test_input($_POST["age"]);
-  }
-
   
-  if ($_POST["email"])
-  {
-      $email = test_input($_POST["email"]);
-      if (!preg_match("/^[a-zA-Z ]*$/",$email)) {
-      $emailErr = "Only letters and white space allowed"; 
+      if (empty($_POST["email"])) {
+        $emailErr = "Email is required";
+      } else {
+        $email = test_input($_POST["email"]);
+        // check if e-mail address is well-formed
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+          $emailErr = "Invalid email format"; 
+        }
       }
-  }
-      
- if (empty($_POST["email"])) {
-  $email = "Email is required";
-  }
-  
-  else
-  {
-  $email = test_input($_POST["email"]);
-  }
-    
     
      if (empty($_POST["password"])) {
     $passwordErr = "password is required";
@@ -96,43 +81,25 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = test_input($_POST["password"]);
   }
     
-    if($_POST['Repeat_password'])
-	{
-		$Repeat_password=$_POST['Repeat_password'];
-    }
-		
-		if($password!=$Repeat_password)
-		{
-			$Repeat_passwordErr="There is no match between the passowrd";
-		}
-        
-        if (empty($_POST["Repeat_password"])) {
-    $Repeat_passwordErr = "Repeat_password is required";
+  if (empty($_POST["Repeat_password"])) {
+    $passwordErr = "Repeat password is required";
   } else {
-    $Repeat_password = test_input($_POST["Repeat_password"]);
+    $password = test_input($_POST["Repeat_password"]);
   }
+
+
     
-    
-if (!($nameErr ||$passwordErr || $Repeat_passwordErr   || $ageErr || $emailErr))
+if (!($nameErr   || $ageErr || $emailErr))
 {
-    echo("WORKINGGGGGGGGGGGGGGGGGGGGGG");
 
 $register_Users = $user->add_user($name,$age,$email,$password);
-                   echo("WORKINGGGGGGGGGGGGGGGGGGGGGG");
 
 
                 $session->login($user_with_password_check);
                 header('Location:login_new.php');
   }
- else{
-    echo("1" + $nameErr );
-    echo("2" +$passwordErr );
-    echo("3" + $Repeat_passwordErr );
-    echo("4" +$ageErr );
-    echo("5" + $emailErr );
-     echo("!!!!!!!XXXXELSEXXXXX!!!!!");
- } 
-}
+ 
+
  
 function test_input($data) {
   $data = trim($data);
@@ -141,11 +108,8 @@ function test_input($data) {
   return $data;
 }
 
-$user = new User();
-$user->add_user("mor","12","sa@sa.com","123")  
    
 ?>
-<body>
     <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
         <div class="wrapper wrapper--w790">
             <div class="card card-5">
