@@ -10,7 +10,7 @@
     <meta name="keywords" content="Colorlib Templates">
 
     <!-- Title Page-->
-    <title>Au Register Forms by Colorlib</title>
+    <title>Register to shareApart</title>
 
     <!-- Icons font CSS-->
     <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
@@ -25,21 +25,19 @@
     <!-- Main CSS-->
     <link href="css/main.css" rel="stylesheet" media="all">
 </head>
-<!-----------PHP CODE FAIL----
 
 
 <?php
 require_once('includes/init.php');
 
 // define variables and set to empty values
-$nameErr = $ageErr= $passwordErr= $Repeat_passwordErr= "";
-$name = $id= $password=$password2=$age= "";
+$nameErr = $ageErr= $emailErr=$passwordErr= $Repeat_passwordErr= "";
+$name =  $password=$Repeat_password= $email= $age= "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    
+    echo($_SERVER["REQUEST_METHOD"]);
     
     $user=new User();
-	$user_with_password=new Password();
 	
 	$register_Users =null;
 	$register_Password=null;
@@ -62,10 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     
 	
-    
-    
     if($_POST['age']){
-        
     if(strlen($_POST['age'])>2)
         $ageErr = "age can not be more then 2 digit";
       }
@@ -75,6 +70,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   } else {
     $age = test_input($_POST["age"]);
   }
+
+  
+  if ($_POST["email"])
+  {
+      $email = test_input($_POST["email"]);
+      if (!preg_match("/^[a-zA-Z ]*$/",$email)) {
+      $emailErr = "Only letters and white space allowed"; 
+      }
+  }
+      
+ if (empty($_POST["email"])) {
+  $email = "Email is required";
+  }
+  
+  else
+  {
+  $email = test_input($_POST["email"]);
+  }
     
     
      if (empty($_POST["password"])) {
@@ -83,50 +96,55 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = test_input($_POST["password"]);
   }
     
-    if($_POST['password2'])
+    if($_POST['Repeat_password'])
 	{
-		$password2=$_POST['password2'];
+		$Repeat_password=$_POST['Repeat_password'];
     }
 		
-		if($password!=$password2)
+		if($password!=$Repeat_password)
 		{
 			$Repeat_passwordErr="There is no match between the passowrd";
 		}
         
-        if (empty($_POST["password2"])) {
-    $Repeat_passwordErr = "password2 is required";
+        if (empty($_POST["Repeat_password"])) {
+    $Repeat_passwordErr = "Repeat_password is required";
   } else {
-    $password2 = test_input($_POST["Repeat_password"]);
+    $Repeat_password = test_input($_POST["Repeat_password"]);
   }
     
-
     
-if (!( $nameErr ||$passwordErr || $Repeat_passwordErr   || $ageErr  ))
-    
+if (!($nameErr ||$passwordErr || $Repeat_passwordErr   || $ageErr || $emailErr))
 {
-    
-$register_Users = $user->add_user($name,$age);
-$register_Password=$user_with_password->add_password($name,$password2);
-    
+    echo("WORKINGGGGGGGGGGGGGGGGGGGGGG");
+
+$register_Users = $user->add_user($name,$age,$email,$password);
+                   echo("WORKINGGGGGGGGGGGGGGGGGGGGGG");
 
 
                 $session->login($user_with_password_check);
-                header('Location:login.php');
+                header('Location:login_new.php');
   }
+ else{
+    echo("1" + $nameErr );
+    echo("2" +$passwordErr );
+    echo("3" + $Repeat_passwordErr );
+    echo("4" +$ageErr );
+    echo("5" + $emailErr );
+     echo("!!!!!!!XXXXELSEXXXXX!!!!!");
+ } 
 }
-   
-    
-		
+ 
 function test_input($data) {
   $data = trim($data);
   $data = stripslashes($data);
   $data = htmlspecialchars($data);
   return $data;
 }
+
+$user = new User();
+$user->add_user("mor","12","sa@sa.com","123")  
    
 ?>
-------------------------------
--------------------------------->
 <body>
     <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
         <div class="wrapper wrapper--w790">
@@ -136,41 +154,46 @@ function test_input($data) {
                 </div>
                 <div class="card-body">
                     <form method="POST">
+
                         <div class="form-row m-b-55">
-                            <div class="name">Name</div>
-                            <div class="value">
+                          <div class="name">Name</div>
+                             <div class="value">
                                 <div class="row row-space">
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="first_name">
-                                            <label class="label--desc">first name</label>
+                                            <input class="input--style-5" type="text" name="name" id="name" required="required">
+                                            <span class="error"> <?php echo $nameErr;?></span>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                         </div>
+                    
+  
+
+                      
+
+                         <div class="form-row m-b-55">
+                           <div class="name">Age</div>
+                             <div class="value">
+                                <div class="row row-space">
                                     <div class="col-2">
                                         <div class="input-group-desc">
-                                            <input class="input--style-5" type="text" name="last_name">
-                                            <label class="label--desc">last name</label>
+                                            <input class="input--style-5" type="text" name="age" id="age" required="required">
+                                             <span class="error"> <?php echo $ageErr;?></span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    
-                        <div class="form-row">
-                                <div class="name">Age</div>
-                                <div class="value">
-                                    <div class="input-group">
-                                        <input class="input--style-5" type="text" name="age">
-                                    </div>
-                                </div>
-                            </div>
+                         </div>
 
 
                         <div class="form-row">
                             <div class="name">Email</div>
                             <div class="value">
                                 <div class="input-group">
-                                    <input class="input--style-5" type="email" name="email">
+                                    <input class="input--style-5" type="email" name="email" id="email" required="required">
+                                    <span class="error"> <?php echo $emailErr;?></span>
                                 </div>
                             </div>
                         </div>
@@ -180,6 +203,7 @@ function test_input($data) {
                             <div class="value">
                                 <div class="input-group">                                       
                                     <input class="input--style-5" name="password" id="pass1" type="password" placeholder="Choose A Password" required="required">
+                                    <span class="error"> <?php echo $passwordErr;?></span>
                                 </div>
                             </div>
                         </div>
@@ -188,7 +212,8 @@ function test_input($data) {
                                 <div class="name">Password</div>
                                 <div class="value">
                                     <div class="input-group">   
-                                        <input class="input--style-5" name="password2" id="pass2" type="password" placeholder="Confirm Your Password" required="required">
+                                        <input class="input--style-5" name="Repeat_password" id="pass2" type="password" placeholder="Confirm Your Password" required="required">
+                                        <span class="error"> <?php echo $Repeat_passwordErr;?></span>
                                     </div>
                                 </div>
                             </div>
@@ -199,7 +224,7 @@ function test_input($data) {
                             <button class="btn btn--radius-2 btn--red" input id="signMeUpB" type="submit" onclick="passvalid()" name="upload">Register</button>
                         </div>
                         <div class="container signin">
-                              <p>Already have an account? <a href="login.php">Sign in</a>.</p>
+                              <p>Already have an account? <a href="login_new.php">Sign in</a>.</p>
       
                          </div>
                     </form>
@@ -220,12 +245,7 @@ function test_input($data) {
            }
           
             if(flag==false){
-              document.getElementById("name").value="";
-              document.getElementById("age").value="";
-              document.getElementById("familyName").value="";
-              document.getElementById("email").value="";
-              document.getElementById("pass1").value="";
-              document.getElementById("pass2").value="";
+           
             
               alert("your password is not the same please try again!");
               window.location.href = ("register_new.php")
