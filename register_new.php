@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     
-if (!($nameErr   || $ageErr || $emailErr))
+if (!($nameErr || $ageErr || $emailErr))
 {
 
 $register_Users = $user->add_user($name,$age,$email,$password);
