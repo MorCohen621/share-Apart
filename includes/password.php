@@ -22,11 +22,11 @@ class Password{
                 $this->$attribute=$value;
        }
      }
-    public function find_user($email,$password){
+    public function find_user($user,$password){
         global $database;
         $error=null;
         $password1=($password);
-        $sql="select * from users where email='".$email."' and password='".$password1."'";
+        $sql="select * from password where user='".$user."' and password='".$password1."'";
         $result=$database->query($sql);
         if (!$result)
             $error='Can not find the user.  Error is:'.$database->get_connection()->error;
