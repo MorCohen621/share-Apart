@@ -1,0 +1,490 @@
+.addEvent{
+
+    display: none;
+
+    margin-top: 15px;
+
+}
+
+a{
+
+    color:inherit;
+
+}
+
+.form.box input{
+
+    max-width: 80%;
+
+}
+
+main{
+
+	background-color:#efefef;
+
+}
+
+
+
+.calendar_btn{
+
+	height:10%;
+
+	font-size:18px;
+
+}
+
+
+
+#newEventBtn{
+
+    display: block;
+
+    cursor: pointer;
+
+    margin:auto;
+
+    margin:2%; 
+
+    background-color: navy;
+
+    padding:10px;
+
+    border-radius: 10px; 
+
+    border:2px; 
+
+    font-size:24px; 
+
+    outline:0;
+
+    color:white; 
+
+    font-family: 'Ubuntu', sans-serif;
+
+    transition: 0.2s linear;
+
+    width:100%;
+
+}
+
+#newEventBtn:hover{
+
+    background-color: lightblue;
+
+    color:black;
+
+}
+
+
+
+main input[type="reset"], #addEventBtn{
+
+    background-color: lightgreen;
+
+    width:40%;
+
+    border-radius: 5px;
+
+    border: 0;
+
+    display: inline-block;
+
+    outline:0;
+
+    margin-left:5%;
+
+    margin-bottom: 15px;
+
+}
+
+iframe{
+
+    border-radius: 5px;
+
+}
+
+.addEvent table *{
+
+    margin-top:5px !important;
+
+    font-weight: bold;
+
+}
+
+.addEvent table:nth-child(odd){
+
+    font-size: 18px;
+
+    padding-right: 5px;
+
+    color: black;
+
+    width:70%;
+
+}
+
+.addEvent table{
+
+    margin:auto;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.box h1{
+
+    text-align: left;
+
+    margin-left: 5%;
+
+    font-family: calibri;
+
+    font-weight: bold;
+
+}
+
+
+
+.note-data{
+
+    position: relative;
+
+    bottom:0;
+
+    font-weight: bold;
+
+    font-style: normal;
+
+    float:right;
+
+    margin:0px;
+
+    font-size: 12px;
+
+    max-height: 20px;
+
+}
+
+#newNoteImg{
+
+    display: none;
+
+    cursor: pointer;
+
+    display: inline-block;
+
+    vertical-align: top;
+
+}
+
+#addNoteBtn{
+
+    display: inline-block;
+
+    display: none;
+
+    cursor: pointer;
+
+    float:right;
+
+    margin-right: 3%;
+
+    background-color: green;
+
+    color:white;
+
+    font-weight: bolder;
+
+    height:100%;
+
+    width:20%;
+
+    font-size: 18px;
+
+}
+
+#newNoteContent{
+
+    display: inline-block;
+
+}
+
+#newNoteContent textarea{
+
+    width:75%;
+
+    display: none;
+
+    background-color: #ffffcc;
+
+    outline:0;
+
+    border:0;
+
+    border-left:6px solid #ffeb3b;
+
+    resize: none;
+
+    border:1px dotted gray;
+
+    height:100%;   
+
+}
+
+#newNoteContent label{
+
+    display: none;
+
+}
+
+
+
+#notes-area .box{
+
+    display: inline-block;
+
+    transition: width 2s;
+
+}
+
+.newNote.box{
+
+    vertical-align: middle;
+
+    background-color: white;
+
+}
+
+.note button{
+
+    font-size: 8px;
+
+    padding:5px;
+
+    float: right;
+
+    border:0;
+
+    margin-left:5px;
+
+    background-color: pink;
+
+    display: inline-block;
+
+}
+
+
+
+/* Responsive*/
+
+/*------------------------------------------
+
+  Responsive Grid Media Queries - 1280, 1024, 768, 480
+
+   1280-1024   - desktop (default grid)
+
+   1024-768    - tablet landscape
+
+   768-480     - tablet 
+
+   480-less    - phone landscape & smaller
+
+--------------------------------------------*/
+
+@media screen and (min-width: 768px) {
+
+.newNote.box{
+
+    vertical-align: middle;
+
+    margin-left:5%; 
+
+    background-color: white;
+
+}
+
+.form.box{
+
+    display: inline-block;
+
+    width:75%;
+
+    margin: auto;
+
+    vertical-align: top;
+
+}
+
+.nav.box{
+
+  width:75%;
+
+}
+
+.box{
+
+  width:65%;
+
+}
+
+.box.cal,.box#notes-area{
+
+  width:100%;
+
+}
+
+div.note{
+
+    background-image: url('http://www.pngmart.com/files/3/Pushpin-Transparent-PNG.png');
+
+    background-repeat: no-repeat;
+
+    background-size: 15px 15px;
+
+    background-position: 50% 3px; 
+
+    vertical-align: top;
+
+    margin:1%;
+
+    padding: 15px 10px 0 15px;
+
+    font-style: oblique;
+
+    width:22%;
+
+    min-height:100px;
+
+    display:inline-block;
+
+    background-color: rgba(255,255,204);
+
+    border-left:6px solid #ffeb3b;
+
+}
+
+
+
+}
+
+
+
+@media screen and (max-width: 768px){ 
+
+    div.note{
+
+    background-image: url('http://www.pngmart.com/files/3/Pushpin-Transparent-PNG.png');
+
+    background-repeat: no-repeat;
+
+    background-size: 15px 15px;
+
+    background-position: 50% 3px; 
+
+    vertical-align: top;
+
+    margin:1%;
+
+    padding: 15px 10px 0 15px;
+
+    font-style: oblique;
+
+    width:44%;
+
+    min-height:100px;
+
+    display:inline-block;
+
+    background-color: rgba(255,255,204);
+
+    border-left:6px solid #ffeb3b;
+
+    }
+
+
+
+}
+
+@media screen and (max-width: 480px) { 
+
+    div.note{
+
+    background-image: url('http://www.pngmart.com/files/3/Pushpin-Transparent-PNG.png');
+
+    background-repeat: no-repeat;
+
+    background-size: 15px 15px;
+
+    background-position: 50% 15px; 
+
+    width:90%;
+
+    margin:auto;
+
+    margin-bottom:15px;
+
+    }
+
+    iframe{
+
+        height:60vh;
+
+    }
+
+    .box.newNote{
+
+    margin-left:1%; 
+
+    }
+
+    .addEvent table td{
+
+    font-size: 18px;
+
+    display:block;
+
+    padding-right: 5px;
+
+    color: black;
+
+    }
+
+    .form.box{
+
+        width:100%;
+
+    }
+
+    main > .box{
+
+      width:100%;
+
+    }
+
+    .box.cal{
+
+        margin:0;
+
+        width:100%;
+
+    }
+
+    .header {
+    font-size: 183%;
+    font-family: 'Rubik', sans-serif !important;
+}
+
+
+
+
+
+}
