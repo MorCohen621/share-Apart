@@ -43,7 +43,7 @@
     </style>
            </head>
 
-<header>   <div id="welcome-user"></div> <span style="float:left;" class="caret"></span>
+<header>   <div id="welcome-user" style="display:none"></div> <span style="float:left;" class="caret"></span>
 </header>
 
 
@@ -97,7 +97,7 @@
       <main>
          <div class="box">
          <div class="box cal" style="padding:1%">
-           <h2 class="header"> Our Calendar </h2>
+           <h2 class="header"> The Apartment's Calendar </h2>
             <br>
             <br>
             <div id="public-alert" style="display:none">
@@ -202,9 +202,9 @@ if(document.getElementById("declaration").checked == true){
                                 
                   <table>
 				  <br>
-                    <tr><th><span style="color:red; margin-left: -50px"><i>* required fields</i></span></th></tr>
+                    <tr><th><span style="color:red; margin-left: -50px"><i></i></span></th></tr>
                      <tr>
-                        <td>Start Date<span style='color:red'>*</span>:</td>
+                        <td>Start Date<span style='color:blue'>*</span>:</td>
                         <td>
                            <div id="sandbox-container">
                               <input type="text" name="start_date" class="form-control" autocomplete="off">
@@ -228,13 +228,13 @@ if(document.getElementById("declaration").checked == true){
                         <td><input type="text" name="location" autocomplete="off"></td>
                      </tr>
                      <tr>
-                        <td>Start Time<span style='color:red'>*</span>:</td>
+                        <td>Start Time<span style='color:blue'>*</span>:</td>
                         <td>
                           <input type="text" class="timepicker-e" name="start-time" data-time-format="H:i" data-step="15" data-min-time="06:00" data-max-time="05:00" data-show-2400="true" autocomplete="off" />
                         </td>
                      </tr>
                      <tr>
-                        <td>End Time<span style='color:red'>*</span>:</td>
+                        <td>End Time<span style='color:blue'>*</span>:</td>
                         <td>
                           <input type="text" class="timepicker-e" name="end-time" data-time-format="H:i" data-step="30" data-min-time="06:00" data-max-time="05:00" data-show-2400="true" autocomplete="off" />
                         </td>
@@ -482,8 +482,8 @@ event['attendees'] = [ {'email': response } ];
                <br>
 	
 			   
-               <button id="addEventBtn" type='button' class="calendar_btn" onclick="insertEvent();" style="background-color:#00c5b9;"> Add Event</button>
-                <input type="reset" class="calendar_btn" value="Reset form" style="background-color: #f05768; font-style: initial;"><br> <pre id="content" style="width:75%">
+               <button id="addEventBtn" type='button' class="btn btn-primary" onclick="insertEvent();" style="background-color:#00c5b9;"> Add Event</button>
+                <input type="reset" class="btn btn-primary" value="Reset form" style="background-color: #f05768; font-style: initial;"><br> <pre id="content" style="width:75%">
                 </form>
                 </pre>
 </td>

@@ -182,7 +182,6 @@
       <script src="script/newcalendar.js"></script>
   </head>
   <body>
-    <p>Google Calendar API Quickstart</p>
 
     <!--Add buttons to initiate auth sequence and sign out-->
     <button id="authorize_button" style="display: none;">Authorize</button>
@@ -190,12 +189,12 @@
 
     <pre id="content" style="white-space: pre-wrap;"></pre>
       <input style='width:33%; font-size:16px;' type='text' placeholder='For example: partyApart calendar' id='apartmentname'>
-       <button disabled id="inst" style = 'font-size:20px; border:3px solid #32bad4; border-radius:5px;'  onclick='newCalendar();'>
+       <button disabled id="inst"  class="btn btn-primary" onclick='newCalendar();'>
                           Create new calendar! 
                          </button>
-
-        	<center>
-	<span style='color:blue; font-size: 24px'><br>Hey, Please make your aprartment's calendar public first, so all the romies can use it</span>
+    <br><br><br><br>
+       <center> 	
+	<span style='color:blue; font-size: 24px'><br>Great, now, Please make your aprartment's calendar public first, so all the romies can use it</span>
                   <ol style='list-style-position: inside; font-size:16px;'>
                     <li>
                       <strong>Enter the following link: <a style='font-size:18px; color:blue' target='_blank' href='https://calendar.google.com'>https://calendar.google.com</a></strong>
@@ -209,17 +208,11 @@
                       
                     </li>
                   </ol>
-                  <form action="#">
-                 <label> <input id="declaration" required type="checkbox">
-						Done!
-                 </label><br>
-				<button  id='make-public'  style='background-color: lightgray; border:1px solid black'>FINISH</button>
-              </form>
-              </center>
+            
       <h2 style = 'font-size:27px; text-align:center; color:#f05768'><h2>
       <label style='text-align:center;margin:auto'> <input style='zoom: 1.5;' type='checkbox' id='finish-instructions'>DONE!</label><br><br>
        <button style='display:none; padding:10px' id='goto-hp'>All Set! <span class='dot'></span></button>         
-
+  </center>
     <script type="text/javascript">
       // Client ID and API key from the Developer Console
      var CLIENT_ID = '523673487903-j4ubr12ssbki5ma1b68qdgodhub52ngu.apps.googleusercontent.com';

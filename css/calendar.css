@@ -46,7 +46,7 @@ main{
 
     margin:2%; 
 
-    background-color: navy;
+    background-color:black;
 
     padding:10px;
 
@@ -79,8 +79,6 @@ main{
 
 
 main input[type="reset"], #addEventBtn{
-
-    background-color: lightgreen;
 
     width:40%;
 
